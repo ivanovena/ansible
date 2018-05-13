@@ -4,18 +4,21 @@
   tasks:
   - name: Create storage account
     azure_rm_storageaccount:
+      cert_validation_mode: ignore
       resource_group: ansible-inventory-test-rg
       name: hivan02
       account_type: Standard_LRS
   
   - name: Create virtual network
     azure_rm_virtualnetwork:
+      cert_validation_mode: ignore
       resource_group: ansible-inventory-test-rg
       name: hivanet
       address_prefixes: "10.10.0.0/16"
   
   - name: Add subnet
     azure_rm_subnet:
+      cert_validation_mode: ignore
       resource_group: ansible-inventory-test-rg
       name: subnet001
       address_prefix: "10.10.0.0/24"
@@ -23,12 +26,14 @@
   
   - name: Create public ip
     azure_rm_publicipaddress:
+      cert_validation_mode: ignore
       resource_group: ansible-inventory-test-rg
       allocation_method: Static
       name: publicip001
   
   - name: Create security group that allows SSH
     azure_rm_securitygroup:
+      cert_validation_mode: ignore
       resource_group: ansible-inventory-test-rg
       name: secgroup001
       rules:
@@ -41,6 +46,7 @@
   
   - name: Create NIC
     azure_rm_networkinterface:
+      cert_validation_mode: ignore
       resource_group: ansible-inventory-test-rg
       name: testnic001
       virtual_network: hivanet
@@ -50,6 +56,7 @@
   
   - name: Create virtual machine
     azure_rm_virtualmachine:
+      cert_validation_mode: ignore
       resource_group: ansible-inventory-test-rg
       name: testvm001
       vm_size: Standard_B1ms
