@@ -1,0 +1,9 @@
+- name: My second Ansible Playbook
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: Delete a resource group
+    azure_rm_resourcegroup:
+      force: yes
+      name: "{{Resource_Name}}"
+      state: absent
